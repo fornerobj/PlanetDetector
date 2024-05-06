@@ -16,7 +16,17 @@ pip install -r requirements.txt
 ```
 Note: You may want to create a python virtual environment to install the packages in a isolated environment.
 
-4. Run the application
+4. Install git lfs (large file storage) in order to download the model weights
+```bash
+git lfs install
+```
+
+5. Download the model weights
+```bash
+git lfs pull
+```
+
+6. Run the application
 ```bash
 flask run
 ```
