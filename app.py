@@ -1,9 +1,15 @@
-from os import pread
+import os, logging
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
+
+# Suppress TensorFlow info and warning messages
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # 0 = all messages are logged (default behavior), 1 = INFO messages are not printed, 2 = INFO and WARNING messages are not printed, 3 = INFO, WARNING, and ERROR messages are not printed
+
+# Suppress warnings from other libraries
+logging.getLogger("tensorflow").setLevel(logging.ERROR)
 
 from prediction_utils import predict_image
 
